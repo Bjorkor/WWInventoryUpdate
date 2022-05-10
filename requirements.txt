@@ -1,0 +1,5 @@
+dask==2022.2.1
+pandarallel==1.5.7
+pandas==1.4.0
+pyodbc==4.0.32
+requests==2.27.1
