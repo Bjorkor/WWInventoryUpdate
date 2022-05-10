@@ -17,12 +17,7 @@ from pandarallel import pandarallel
 from concurrent.futures import ThreadPoolExecutor
 from threading import Thread, local
 
-# import tester
-'''bigtimestart = time.time()
-beforeprod = tester.final
-now = datetime.datetime.now()
-beforename = f'beforeprod.csv'
-beforeprod.to_csv(beforename)'''
+
 thread_local = local()
 
 q = []
@@ -170,40 +165,24 @@ api_url = 'https://www.wwhardware.com/rest/V1/products'
 count = 0
 headers = {'Authorization': 'Bearer 2qlm7ls28dzzv1afeoieda7ood5j6137'}
 logdf = pd.DataFrame(columns=['response code', 'time'])
-# print('reaching out to magento')
+
 start = time.time()
 loopData(final)
 total = len(q)
 morehands()
 
 end = time.time()
-# print(f'upload {len(q)} products in {end - start} seconds')
-# print(f'upload {len(q)} products in {end - start} seconds')
+
 
 now = datetime.datetime.now()
 f = open(f"{now} out.txt", "w")
 f.write(f'last uploaded {len(q)} products in {end - start} seconds on {now}')
 f.close()
 logdf.to_csv(f'/home/ftp/logs/{now} log.csv')
-# for index, row in final.iterrows():
-#    qty = row['qty']
-#    sku = row['sku']
-#    sendData(qty,sku)
+
 
 
 print(f'last uploaded {len(q)} products in {end - start} seconds on {now}')
 
 # https://docs.microsoft.com/en-us/sql/connect/odbc/linux-mac/using-integrated-authentication?view=sql-server-ver15
-'''tester
-afterprod = tester.final
-aftername = f'afterprod.csv'
-afterprod.to_csv(aftername)
-bigtimeend = time.time()
-print(f'BIG TIME {bigtimeend - bigtimestart} SECONDS')
-qtychange = os.system(f'csvdiff --style=summary qty {beforename} {aftername}')
-skuchange = os.system(f'csvdiff --style=summary sku {beforename} {aftername}')
-stockchange = os.system(f'csvdiff --style=summary in\ stock {beforename} {aftername}')
-changesmade = {'qty': [qtychange], 'sku': [skuchange], 'stock': [stockchange]}
-print(changesmade)
-changesdf = pd.DataFrame(data=changesmade)
-changesdf.to_csv('changes.csv')'''
+
