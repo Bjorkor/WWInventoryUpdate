@@ -16,6 +16,7 @@ from dask.multiprocessing import get
 from pandarallel import pandarallel
 from concurrent.futures import ThreadPoolExecutor
 from threading import Thread, local
+import config
 
 
 thread_local = local()
@@ -164,7 +165,7 @@ api_url = 'https://www.wwhardware.com/rest/V1/products'
 
 count = 0
 #API KEY - if problems arise, check here first. may need to renew api access and update the Bearer token
-headers = {'Authorization': 'Bearer 2qlm7ls28dzzv1afeoieda7ood5j6137'}
+headers = {'Authorization': f'Bearer {config.APIBEARERTOKEN}'}
 logdf = pd.DataFrame(columns=['response code', 'time'])
 
 start = time.time()
